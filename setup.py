@@ -1,15 +1,13 @@
 from distutils.core import setup
 
 setup(
-    name='Sfor',
+    name='python-sfor',
     version='0.1',
-    author='Shinji Ikeda',
+    author='shinjiikeda',
     author_email='gm.ikeda@gmail.com',
     packages=['sfor'],
-    url='http://pypi.python.org/pypi/SforSimple',
+    url='http://pypi.python.org/pypi/python-sfor',
     license='LICENSE.txt',
-    description='Simple  Failover Resolver',
-    long_description=open('README.txt').read(),
-    install_requires=[
-    ],
+    description='Simple Failover Resolver',
+    long_description=open('README.md').read(),
 )
