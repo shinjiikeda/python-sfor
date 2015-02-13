@@ -3,7 +3,10 @@ Sfor
 
 Simple failover resolver for Python
 
-yet, you should not use in large-scale service
+this is experimental version.
+Yet, you should not use in large-scale service.
+
+
 
 Install
 ===
