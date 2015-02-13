@@ -4,7 +4,7 @@ Sfor
 Simple failover resolver for Python
 
 this is experimental version.
-Yet, you should not use in large-scale service.
+yet, you should not use in large-scale service.
 
 
 
