@@ -24,26 +24,39 @@ class SforNodeInfo:
         self.status = True
     
 def backend_check(check_list, loop=True, wait_time=15, http_timeout=3):
-    while loop:
+    while True:
         for n in check_list:
             conn = httplib.HTTPConnection(n.host, n.port, timeout=http_timeout)
-            conn.request("GET", n.check_path)
-            res = conn.getresponse()
-            logging.debug("sfor %s res: %d" % (n.host, n.status))
-            if res.status != 200:
+            status = False
+            try:
+                conn.request("GET", n.check_path)
+                res = conn.getresponse()
+                status = res.status / 100 == 2
+            except:
+                status = False
+
+            if status == False:
                 logging.info("sfor disable %s" % n.host)
                 n.disable()
             else:
                 logging.info("sfor enable %s" % n.host)
                 n.enable()
+            
+            logging.debug("sfor %s res: %d" % (n.host, n.status))
+        
+        if loop == False:
+            break
+        else:
+            time.sleep(wait_time)
 
-        time.sleep(wait_time)
 
 class SforSimple:
     
     def __init__(self, node_list):
         self.node_list = node_list
+        logging.debug("initial check start.")
         backend_check(node_list, False)
+        logging.debug("initial check finish.")
         th = Thread(target=backend_check, args=(node_list,))
         th.daemon = True
         th.start()
