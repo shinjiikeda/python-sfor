@@ -3,6 +3,8 @@ Sfor
 
 Simple failover resolver for Python
 
+yet, you should not use in large-scale service
+
 Install
 ===
 
