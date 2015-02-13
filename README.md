@@ -11,7 +11,7 @@ yet, you should not use in large-scale service.
 Install
 ===
 
-    pip install sfor
+    pip install python-sfor
 
 Example
 ===
