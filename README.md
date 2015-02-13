@@ -1,7 +1,7 @@
 Sfor
 ====
 
-Simple failover resolver
+Simple failover resolver for Python
 
 Install
 ===
